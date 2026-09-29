@@ -339,7 +339,7 @@ namespace MiniTweaksToolbox
                                                     newInventoryItem1.extraParameters.Add("Quality", Main.Settings.quality);
                                                 }
 
-                                                if (Singleton<GameInventory>.Instance.GetItemProperty(text1).ShopGroup.Equals("Engine") && Main.Settings.groupParts)
+                                                if (Main.Settings.groupParts && CarHelper.IsEngineGroupPart(GameScript.Get().GetIOMouseOverCarLoader2(), GameScript.Get().GetPartMouseOver()))
                                                 {
                                                     string engineName = GameScript.Get().GetIOMouseOverCarLoader2().GetEngine().GetComponent<InteractiveObject>().GetID().Split('(')[0];
                                                     object engineParts = CarHelper.EngineParts(GameScript.Get().GetIOMouseOverCarLoader2());

@@ -765,6 +765,18 @@ namespace MiniTweaksToolbox
             }
         }
 
+		internal static bool IsEngineGroupPart(CarLoader car, PartScript part)
+		{
+			GameObject engine = car.GetEngine();
+			if (engine == null || part == null || !part.transform.IsChildOf(engine.transform))
+			{
+				return false;
+			}
+
+			string id = part.GetID();
+			return !(id.Contains("gearbox") || id.Contains("rozrusznik"));
+		}
+
         public static List<NewInventoryItem> inventory;
 		public static List<NewGroupItem> groupInventory;
 		public static List<int> rimsInstance;
